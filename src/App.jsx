@@ -1,33 +1,102 @@
-import './App.css'
-
 import React from 'react';
 import './App.css';
 
-// Data for the stats section
-const achievements = [
+// Data: Trophies & Milestones
+const trophies = [
+    {
+        id: 0,
+        title: "Europa League Winner",
+        year: "2024-2025",
+        team: "Tottenham Hotspur",
+        desc: "A historic European triumph in his final season with Spurs."
+    },
     {
         id: 1,
         title: "Premier League Golden Boot",
         year: "2021-2022",
-        desc: "First Asian player to win the award, scoring 23 goals without a single penalty."
+        team: "Tottenham Hotspur",
+        desc: "23 Goals. First Asian player to win the PL Golden Boot."
     },
     {
         id: 2,
         title: "FIFA Puskás Award",
         year: "2020",
-        desc: "Awarded for his incredible solo goal against Burnley, running from box to box."
+        team: "Tottenham Hotspur",
+        desc: "The wonder goal vs Burnley, dribbling the entire pitch."
     },
     {
         id: 3,
-        title: "Asian Footballer of the Year",
-        year: "Multiple",
-        desc: "Dominating the continent with record-breaking wins (7+ times)."
+        title: "Asian Games Gold Medal",
+        year: "2018",
+        team: "South Korea U23",
+        desc: "Captain's performance leading his country to gold."
     },
     {
         id: 4,
-        title: "Tottenham Hotspur Captain",
-        year: "2023 - Present",
-        desc: "Appointed club captain, leading the team in the Premier League."
+        title: "Champions League Runner-up",
+        year: "2018-2019",
+        team: "Tottenham Hotspur",
+        desc: "Instrumental in Tottenham's run to the Madrid final."
+    },
+    {
+        id: 5,
+        title: "Asian Footballer of the Year",
+        year: "Multiple",
+        team: "Individual",
+        desc: "Record-breaking 9-time winner of the Best Footballer in Asia award."
+    }
+];
+
+// Data: Transfer History
+const transferHistory = [
+    {
+        date: "05 Aug 2025",
+        from: "Tottenham Hotspur",
+        to: "Los Angeles FC",
+        fee: "€ 22.0M",
+        type: "Transfer"
+    },
+    {
+        date: "27 Aug 2015",
+        from: "Bayer 04 Leverkusen",
+        to: "Tottenham Hotspur",
+        fee: "€ 30.0M",
+        type: "Transfer"
+    },
+    {
+        date: "30 Jun 2013",
+        from: "Hamburger SV",
+        to: "Bayer 04 Leverkusen",
+        fee: "€ 12.5M",
+        type: "Transfer"
+    },
+    {
+        date: "30 Jun 2010",
+        from: "Hamburger SV Youth",
+        to: "Hamburger SV",
+        fee: "-",
+        type: "Signed"
+    },
+    {
+        date: "31 Mar 2010",
+        from: "Hamburger SV U19",
+        to: "Hamburger SV Youth",
+        fee: "-",
+        type: "Signed"
+    },
+    {
+        date: "30 Jun 2009",
+        from: "Hamburger SV U17",
+        to: "Hamburger SV U19",
+        fee: "-",
+        type: "Signed"
+    },
+    {
+        date: "31 Jul 2008",
+        from: "Free Player",
+        to: "Hamburger SV U17",
+        fee: "-",
+        type: "Signed"
     }
 ];
 
@@ -38,83 +107,91 @@ function App() {
             <nav className="navbar">
                 <div className="logo">HM<span>7</span> SON</div>
                 <div className="nav-links">
-                    <a href="#bio">Biography</a>
-                    <a href="#stats">Stats</a>
-                    <a href="#gallery">Gallery</a>
+                    <a href="#home">Home</a>
+                    <a href="#trophies">Honors</a>
+                    <a href="#transfers">Career Path</a>
                 </div>
             </nav>
 
             {/* Hero Section */}
-            <header className="hero">
-                <h2>The Pride of Asia</h2>
-                <h1>Son<br />Heung-Min</h1>
-                <p style={{ marginTop: '20px', maxWidth: '500px', color: '#cbd5e1' }}>
-                    World-class winger, South Korean Captain, and Premier League icon.
-                    Known for his explosive speed, two-footed finishing, and infectious smile.
+            <section id="home" className="hero">
+                <div className="hero-badge">Current Club: Los Angeles FC</div>
+                <h1>SON<br />HEUNG-MIN</h1>
+                <p>
+                    The pride of South Korea. A Premier League icon.
+                    Now conquering the MLS. Known for world-class finishing,
+                    explosive speed, and unrivaled leadership.
                 </p>
-                <div style={{ marginTop: '30px' }}>
-                    <button className="hero-btn">View Highlights</button>
-                </div>
-            </header>
-
-            {/* Biography Section */}
-            <section id="bio" className="bio-section">
-                <div className="bio-image">
-                    <img
-                        src="https://platform.cartilagefreecaptain.sbnation.com/wp-content/uploads/sites/60/chorus/uploads/chorus_asset/file/24170787/1427955163.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=1080"
-                        alt="Son Heung-Min Portrait"
-                    />
-                </div>
-                <div className="bio-content">
-                    <h3>From Chuncheon to London</h3>
-                    <p>
-                        Born on July 8, 1992, in Chuncheon, Gangwon Province, Son Heung-min
-                        moved to Germany as a teenager to join Hamburger SV's youth academy.
-                        After making a name for himself in the Bundesliga with Hamburg and Bayer Leverkusen,
-                        he signed with Tottenham Hotspur in 2015 for £22 million, becoming the
-                        most expensive Asian player in history.
-                    </p>
-                    <p>
-                        "Sonny" has since evolved into one of the most lethal forwards in world football.
-                        Beyond his club success, he is the talismanic captain of the South Korea national team,
-                        having represented his country in multiple World Cups and leading them to Asian Games gold in 2018.
-                    </p>
-                    <p>
-                        <strong>Position:</strong> Forward / Winger<br />
-                        <strong>Number:</strong> 7<br />
-                        <strong>Nationality:</strong> South Korea 🇰🇷
-                    </p>
-                </div>
             </section>
 
-            {/* Stats/Achievements Section */}
-            <section id="stats" className="achievements">
-                <h2 className="section-title">Career Milestones</h2>
-                <div className="grid">
-                    <div className="card">
-                        <span className="highlight-number">100+</span>
-                        <h4>Premier League Goals</h4>
-                        <p>A member of the prestigious PL 100 club, cementing his legacy in England.</p>
-                    </div>
-
-                    {achievements.map((item) => (
-                        <div key={item.id} className="card">
-                            <span className="highlight-number" style={{ fontSize: '1.5rem', color: '#fff' }}>
-                                {item.year}
-                            </span>
-                            <h4>{item.title}</h4>
-                            <p>{item.desc}</p>
+            {/* Trophy Cabinet */}
+            <section id="trophies" className="section">
+                <h2 className="section-title">Trophy Cabinet</h2>
+                <div className="trophy-grid">
+                    {trophies.map((t) => (
+                        <div key={t.id} className="trophy-card">
+                            <span className="trophy-year">{t.year}</span>
+                            <h3>{t.title}</h3>
+                            <p style={{ color: '#94a3b8', marginBottom: '10px', fontSize: '0.9rem' }}>{t.team}</p>
+                            <p style={{ lineHeight: '1.5' }}>{t.desc}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
+            {/* Transfer History Section */}
+            <section id="transfers" className="section alt-bg">
+                <h2 className="section-title">Transfer History</h2>
+                <div className="table-wrapper">
+                    <table className="transfer-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Movement</th>
+                                <th>Fee</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {transferHistory.map((item, index) => (
+                                <tr key={index}>
+                                    <td style={{ width: '20%' }}>
+                                        <div style={{ fontWeight: 'bold', color: '#fff' }}>{item.date.split(' ').slice(1).join(' ')}</div>
+                                        <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{item.date.split(' ')[0]}</div>
+                                    </td>
+                                    <td style={{ width: '40%' }}>
+                                        <div style={{ marginBottom: '4px' }}>
+                                            <span style={{ color: '#64748b', fontSize: '0.85rem' }}>From: </span>
+                                            <span className="club-name">{item.from}</span>
+                                        </div>
+                                        <div>
+                                            <span style={{ color: '#c39e6d', fontSize: '0.85rem' }}>To: </span>
+                                            <span className="club-name">{item.to}</span>
+                                        </div>
+                                    </td>
+                                    <td style={{ width: '20%' }}>
+                                        <span className="transfer-fee">{item.fee}</span>
+                                    </td>
+                                    <td style={{ width: '20%' }}>
+                                        <span style={{
+                                            background: 'rgba(255,255,255,0.1)',
+                                            padding: '4px 8px',
+                                            borderRadius: '4px',
+                                            fontSize: '0.8rem'
+                                        }}>
+                                            {item.type}
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
             {/* Footer */}
             <footer>
-                <p>© {new Date().getFullYear()} Son Heung-Min Fan Page. Made with React.</p>
-                <p style={{ marginTop: '10px', opacity: 0.5 }}>
-                    Images used for educational/demonstration purposes.
-                </p>
+                <p>© {new Date().getFullYear()} HM7 Fan Profile. Data provided by AiScore.</p>
             </footer>
         </div>
     );
