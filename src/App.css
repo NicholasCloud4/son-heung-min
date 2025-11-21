@@ -1,42 +1,206 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+:root {
+  --primary-navy: #132257;
+  --highlight-blue: #113488;
+  --accent-white: #ffffff;
+  --text-grey: #cbd5e1;
+  --korea-red: #cd2e3a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--primary-navy);
+  color: var(--accent-white);
+  line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  position: sticky;
+  top: 0;
+  background-color: rgba(19, 34, 87, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -1px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo span {
+  color: var(--korea-red);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav-links a {
+  color: var(--accent-white);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--text-grey);
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+  background: linear-gradient(to right, #132257 40%, transparent),
+    url('https://images.unsplash.com/photo-1518605348417-89d07613f07d?q=80&w=1920&auto=format&fit=crop') no-repeat center/cover;
+  /* Note: Using a generic stadium image as placeholder */
+}
+
+.hero h1 {
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: var(--text-grey);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.hero-btn {
+  background-color: var(--accent-white);
+  color: var(--primary-navy);
+  padding: 12px 30px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  width: fit-content;
+  transition: transform 0.2s;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Bio Section */
+.bio-section {
+  padding: 5rem 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  background-color: #0f1a45;
+}
+
+.bio-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 20px 20px 0px rgba(255, 255, 255, 0.05);
+}
+
+.bio-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--korea-red);
+  padding-left: 1rem;
+}
+
+.bio-content p {
+  color: var(--text-grey);
+  margin-bottom: 1rem;
+}
+
+/* Achievements Grid */
+.achievements {
+  padding: 5rem 5%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .card {
-  padding: 2em;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-white);
+}
+
+.card p {
+  color: var(--text-grey);
+  font-size: 0.9rem;
+}
+
+.highlight-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--korea-red);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: var(--text-grey);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .bio-section {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+  }
 }
